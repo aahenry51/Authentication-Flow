@@ -6,5 +6,7 @@ export const getLoginData = async (values) => {
       email: values.email,
       password: values.password,
     });
+
+    return response;
   } catch (error) {}
 };
