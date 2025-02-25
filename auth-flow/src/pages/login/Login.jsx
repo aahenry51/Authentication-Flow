@@ -1,24 +1,20 @@
-import React, { useEffect, useContext, useState } from "react";
-//import { AuthContext } from "../../context/AuthContext";
+import React, { useContext, useState } from "react";
+import { AuthContext } from "../../context/AuthProvider";
 import { getLoginData } from "../../api/requestAPI";
-import axios from "axios";
-import { axiosAPI } from "../../api/axios";
 
 export const LoginPage = () => {
+  const { setAuth } = useContext(AuthContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [values, setValues] = useState({ email: "", password: "" });
-  const [message, setMessage] = useState("");
 
   const signIn = async (values) => {
     let data = await getLoginData(values);
+    console.log(data);
   };
 
   const handleSubmit = async (event) => {
-    console.log("Submit");
     event.preventDefault();
-    const response = await signIn(values);
-    // Handle the login logic here
+    const response = await signIn({ email: username, password: password });
   };
 
   return (
