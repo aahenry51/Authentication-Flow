@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import { getLoginData } from "../../api/requestAPI";
+import { storeData } from "../../storage/localStorage";
+import { TOKEN_KEY } from "../../constants/constants";
 
 export const LoginPage = () => {
   const { setAuth } = useContext(AuthContext);
@@ -9,6 +11,7 @@ export const LoginPage = () => {
 
   const signIn = async (values) => {
     let data = await getLoginData(values);
+    await storeData(TOKEN_KEY, data);
     console.log(data);
   };
 
