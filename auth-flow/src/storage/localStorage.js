@@ -7,7 +7,7 @@ export const storeData = async (key, value) => {
       await localStorage.setItem(key, value);
     }
   } catch (error) {
-    console.log(error);
+    //console.log(error);
   }
 };
 
@@ -19,7 +19,7 @@ export const getData = async (key) => {
     }
     return value;
   } catch (error) {
-    console.log(error);
+    //console.log(error);
   }
 };
 
@@ -27,6 +27,6 @@ export const removeData = async (key) => {
   try {
     await localStorage.removeItem(key);
   } catch (error) {
-    console.log(error);
+    //console.log(error);
   }
 };
