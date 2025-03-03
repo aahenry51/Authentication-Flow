@@ -5,6 +5,7 @@ export const getLoginData = async (values) => {
     const response = await axiosAPI.post("/api/login", {
       email: values.email,
       password: values.password,
+      token: values.token,
     });
 
     return response;

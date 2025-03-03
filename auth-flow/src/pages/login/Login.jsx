@@ -11,8 +11,9 @@ export const LoginPage = () => {
 
   const signIn = async (values) => {
     let data = await getLoginData(values);
-    await storeData(TOKEN_KEY, data);
-    console.log(data);
+    await storeData(TOKEN_KEY, data.data);
+    setAuth(data.data);
+    console.log(data.data);
   };
 
   const handleSubmit = async (event) => {
